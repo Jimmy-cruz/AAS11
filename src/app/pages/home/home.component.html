@@ -1,0 +1,30 @@
+<!-- <p>home works!</p> -->
+<div class="w-3/4 mx-auto my-10 border p-10">
+    <form>
+        <div>
+            <label for="">Nombre:</label>
+            <input class="border mb-5 ml-2" type="text" formControlName="nombre"
+            [(ngModel)]="nombre">
+            <span class="ml-2">(Debe tener como minimo 10 caracteres)</span>
+        </div>
+        <div>
+            <label for="">Email:</label>
+            <input class="border mb-5 ml-2" type="text" formControlName="email"
+             [(ngModel)]="email">
+            <span class="ml-2">(El mail no es valido)</span>
+        </div>
+        <div>
+            <label for="">Mensaje:</label><br>
+            <textarea class="border mb-5 w-full" name="" 
+            id="" cols="30" rows="10" formControlName="mensaje" 
+            [(ngModel)]="mensaje"></textarea>
+            <br>
+            <p>(El mensaje no puede quedar vacio)</p>
+        </div>
+        <div>
+            <button [disabled]="formLogin.invalid" 
+            class="border-2 bg-slate-100 p-1 rounded-lg hover:border-slate-400">Confirmar</button>
+        </div>
+    </form>
+</div>
+    
