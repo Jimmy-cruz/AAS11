@@ -1,30 +1,47 @@
 <!-- <p>home works!</p> -->
 <div class="w-3/4 mx-auto my-10 border p-10">
-    <form>
+    <form [formGroup]="formLogin" (submit)="send()">
         <div>
             <label for="">Nombre:</label>
-            <input class="border mb-5 ml-2" type="text" formControlName="nombre"
-            [(ngModel)]="nombre">
-            <span class="ml-2">(Debe tener como minimo 10 caracteres)</span>
+            <input class="border mb-5 ml-2" type="text" id="nombre" 
+            formControlName="nombre" [(ngModel)]="nombre">
+            <!-- [(ngModel)]="nombre" -->
+            <span *ngIf="!nombre" class="ml-2">(Debe tener como minimo 10 caracteres)</span>
         </div>
         <div>
             <label for="">Email:</label>
-            <input class="border mb-5 ml-2" type="text" formControlName="email"
-             [(ngModel)]="email">
-            <span class="ml-2">(El mail no es valido)</span>
+            <input class="border mb-5 ml-2" size="30" type="text" id="email" 
+            formControlName="email" [(ngModel)]="email">
+             <!-- [(ngModel)]="email" -->
+            <span *ngIf="!email" class="ml-2">(El mail no es valido)</span>
         </div>
         <div>
             <label for="">Mensaje:</label><br>
             <textarea class="border mb-5 w-full" name="" 
-            id="" cols="30" rows="10" formControlName="mensaje" 
-            [(ngModel)]="mensaje"></textarea>
+            id="mensaje" cols="30" rows="10" formControlName="mensaje" [(ngModel)]="mensaje"
+            ></textarea>
+            <!-- [(ngModel)]="mensaje" -->
             <br>
-            <p>(El mensaje no puede quedar vacio)</p>
+            <p *ngIf="!mensaje">(El mensaje no puede quedar vacio)</p>
         </div>
         <div>
             <button [disabled]="formLogin.invalid" 
-            class="border-2 bg-slate-100 p-1 rounded-lg hover:border-slate-400">Confirmar</button>
+            class="border-2 bg-slate-100 p-1 rounded-lg hover:border-slate-400">Confirmar
+            </button>
+            <p *ngIf="formLogin.valid">Todos los datos son validos</p>
         </div>
+
     </form>
+    <div class="mt-5">
+        <div class="bg-black p-4 text-white text-1xl text-yellow-400">
+            Status - <span class="text-red-500">{{formLogin.valid}}</span>
+        </div>
+    
+    
+        <div class="bg-black p-4 text-white text-1xl text-yellow-400 mt-4">
+            {{formLogin.value | json}}
+        </div>
+    </div>
+    
 </div>
     
