@@ -6,11 +6,12 @@
             <input class="border mb-5 ml-2" type="text" id="nombre" 
             formControlName="nombre" [(ngModel)]="nombre">
             <!-- [(ngModel)]="nombre" -->
-            <span *ngIf="!nombre" class="ml-2">(Debe tener como minimo 10 caracteres)</span>
+            <!-- update: se establece la condicion para mostrar alerta cuando no se cumpla -->
+            <span *ngIf="10 > nombre.length" class="ml-2">(Debe tener como minimo 10 caracteres)</span>
         </div>
         <div>
             <label for="">Email:</label>
-            <input class="border mb-5 ml-2" size="30" type="text" id="email" 
+            <input class="border mb-5 ml-2" size="30" type="email" id="email" 
             formControlName="email" [(ngModel)]="email">
              <!-- [(ngModel)]="email" -->
             <span *ngIf="!email" class="ml-2">(El mail no es valido)</span>

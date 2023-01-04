@@ -8,11 +8,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
   public formLogin!: FormGroup;
+  
   nombre!:string;
   email!:string;
   mensaje!:string;
-
-  
 
   constructor(private formBuilder: FormBuilder){
 
